@@ -8,7 +8,6 @@ export default async function HomePage() {
   const images = await db.query.images.findMany({
     orderBy: (module, { desc }) => [desc(module.points)],
   });
-  console.log("🐛 ~ file: page.tsx:9 ~ HomePage ~ images:", images);
 
   return (
     <main className="">
@@ -17,6 +16,7 @@ export default async function HomePage() {
           <div key={image.id} className="">
             <img
               src={image.url}
+              alt={image.name}
               className="h-full max-h-48 w-full max-w-48 object-contain"
             />
             <div className="text-center">{image.name}</div>

@@ -7,7 +7,7 @@
 - [x] Tidy up build process
 - [x] Actually Setup the DB
 - [x] Mock to real data from DB
-- [ ] Setup the Authentication
+- [x] Setup the Authentication
 - [ ] image upload
 - [ ] Error Management (w/ Sentry)
 - [ ] Routing/image page (parallel routes)
