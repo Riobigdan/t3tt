@@ -6,6 +6,7 @@
 - [x] Scaffold basic ui mock data 主要是主动搭建整体框架
 - [x] Tidy up build process
 - [x] Actually Setup the DB
+- [x] Mock to real data from DB
 - [ ] Setup the Authentication
 - [ ] image upload
 - [ ] Error Management (w/ Sentry)
