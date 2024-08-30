@@ -1,8 +1,26 @@
 import Link from "next/link";
 
+const mockedUrls = [
+  "https://picsum.photos/500/300",
+  "https://picsum.photos/500/300",
+  "https://picsum.photos/500/300",
+];
+
+const mockedImages = mockedUrls.map((url, index) => ({
+  id: index + 1,
+  url,
+}));
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="">
+      <div className="flex flex-wrap gap-4">
+        {mockedImages.map((image) => (
+          <div key={image.id} className="w-48">
+            <img src={image.url} alt={`Image ${image.id}`} />
+          </div>
+        ))}
+      </div>
       <h1>Hello World</h1>
     </main>
   );
