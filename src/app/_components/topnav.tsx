@@ -1,6 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
+import { UploadButton } from "~/utils/uploadthing";
 
 export default function TopNav() {
   return (
@@ -11,7 +14,10 @@ export default function TopNav() {
         <SignInButton />
       </SignedOut>
       <SignedIn>
-        <UserButton />
+        <div className="flex items-center gap-4">
+          <UploadButton endpoint="imageUploader" />
+          <UserButton />
+        </div>
       </SignedIn>
     </nav>
   );
