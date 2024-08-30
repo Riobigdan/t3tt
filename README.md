@@ -9,6 +9,7 @@
 - [x] Mock to real data from DB
 - [x] Setup the Authentication
 - [ ] image upload
+- [ ] "taint" (server-only)
 - [ ] Error Management (w/ Sentry)
 - [ ] Routing/image page (parallel routes)
 - [ ] Delete functionality (w/ server actions)
