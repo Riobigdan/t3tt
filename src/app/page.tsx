@@ -1,4 +1,7 @@
+import { headers } from "next/headers";
 import { db } from "~/server/db";
+
+export const dynamic = "force-dynamic";
 
 const mockedUrls = [
   "https://picsum.photos/500/300",
@@ -12,6 +15,7 @@ const mockedImages = mockedUrls.map((url, index) => ({
 }));
 
 export default async function HomePage() {
+  headers(); //确保该页面是动态渲染的，而不是静态生成的
   const posts = await db.query.posts.findMany();
   console.log("🐛 ~ file: page.tsx:17 ~ HomePage ~ posts:", posts);
   return (
