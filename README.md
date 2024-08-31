@@ -8,7 +8,7 @@
 - [x] Actually Setup the DB
 - [x] Mock to real data from DB
 - [x] Setup the Authentication
-- [ ] image upload
+- [x] image upload
 - [ ] "taint" (server-only)
 - [ ] Use Next Image component
 - [ ] Error Management (w/ Sentry)
