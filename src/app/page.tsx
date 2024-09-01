@@ -1,21 +1,23 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { headers } from "next/headers";
-import { getUserData } from "~/server/data";
+import Image from "next/image";
 import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
 
 async function Images() {
   const images = await getMyImages();
-  const userData = await getUserData();
+
   return (
     <div className="flex flex-wrap gap-4">
       {images.map((image) => (
-        <div key={image.id} className="">
-          <img
+        <div key={image.id} className="flex h-48 w-48 flex-col">
+          <Image
             src={image.url}
             alt={image.name}
-            className="h-full max-h-48 w-full max-w-48 object-contain"
+            width={192}
+            height={192}
+            style={{ objectFit: "contain", maxHeight: "100%" }} // objectFit: "contain" 是 CSS 属性， contain 是 CSS 属性，表示图像保持其纵横比，并尽可能大，但完全在容器内
           />
           <div className="text-center">{image.name}</div>
         </div>
