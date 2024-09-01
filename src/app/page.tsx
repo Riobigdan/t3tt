@@ -1,6 +1,7 @@
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import { headers } from "next/headers";
 import Image from "next/image";
+import Link from "next/link";
 import { getMyImages } from "~/server/queries";
 
 export const dynamic = "force-dynamic";
@@ -11,14 +12,15 @@ async function Images() {
   return (
     <div className="flex flex-wrap gap-4">
       {images.map((image) => (
-        <div key={image.id} className="flex h-48 w-48 flex-col">
-          <Image
-            src={image.url}
-            alt={image.name}
-            width={192}
-            height={192}
-            style={{ objectFit: "contain", maxHeight: "100%" }} // objectFit: "contain" 是 CSS 属性， contain 是 CSS 属性，表示图像保持其纵横比，并尽可能大，但完全在容器内
-          />
+        <div key={image.id} className="flex w-48 flex-col">
+          <Link href={`/img/${image.id}`} className="relative h-48 w-full">
+            <Image
+              src={image.url}
+              alt={image.name}
+              layout="fill"
+              style={{ objectFit: "contain" }} // objectFit: "contain" 是 CSS 属性，表示图像保持其纵横比，并尽可能大，但完全在容器内
+            />
+          </Link>
           <div className="text-center">{image.name}</div>
         </div>
       ))}

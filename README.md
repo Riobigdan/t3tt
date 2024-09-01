@@ -11,7 +11,7 @@
 - [x] image upload
 - [x] "taint" (server-only)
 - [x] Use Next Image component
-- [ ] Error Management (w/ Sentry)
+- [-] Error Management (w/ Sentry) 暂时放弃 价位太高 且接入麻烦
 - [ ] Routing/image page (parallel routes)
 - [ ] Delete functionality (w/ server actions)
 - [ ] Analytics (posthog)
