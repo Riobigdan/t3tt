@@ -9,7 +9,7 @@
 - [x] Mock to real data from DB
 - [x] Setup the Authentication
 - [x] image upload
-- [ ] "taint" (server-only)
+- [x] "taint" (server-only)
 - [ ] Use Next Image component
 - [ ] Error Management (w/ Sentry)
 - [ ] Routing/image page (parallel routes)
