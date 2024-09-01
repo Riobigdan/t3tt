@@ -34,13 +34,4 @@ function optimizeName(fileName: string): string {
   return optimizedName.replace(/_/g, " ").trim();
 }
 
-/* file Structure
-file UploadedFileData {
-  name: 'Nottingham_Forest_F.C._logo.svg',
-  size: 36064,
-  type: 'image',
-  key: 'd6ed1367-bc38-4bb5-89dc-323d995262e0-g7pgvk.C._logo.svg',
-  url: 'https://utfs.io/f/d6ed1367-bc38-4bb5-89dc-323d995262e0-g7pgvk.C._logo.svg',
-  customId: null  
-}
-*/
+export type OurFileRouter = typeof ourFileRouter;
