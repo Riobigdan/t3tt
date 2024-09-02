@@ -10,22 +10,20 @@ async function Images() {
   const images = await getMyImages();
 
   return (
-    <div className="flex flex-wrap gap-4">
-      {[...images, ...images, ...images, ...images, ...images, ...images].map(
-        (image) => (
-          <div key={image.id} className="flex w-48 flex-col">
-            <Link href={`/img/${image.id}`} className="relative h-48 w-full">
-              <Image
-                src={image.url}
-                alt={image.name}
-                layout="fill"
-                style={{ objectFit: "contain" }} // objectFit: "contain" 是 CSS 属性，表示图像保持其纵横比，并尽可能大，但完全在容器内
-              />
-            </Link>
-            <div className="text-center">{image.name}</div>
-          </div>
-        ),
-      )}
+    <div className="flex flex-wrap justify-center gap-4 p-4">
+      {images.map((image) => (
+        <div key={image.id} className="flex w-48 flex-col">
+          <Link href={`/img/${image.id}`} className="relative h-48 w-full">
+            <Image
+              src={image.url}
+              alt={image.name}
+              layout="fill"
+              style={{ objectFit: "contain" }} // objectFit: "contain" 是 CSS 属性，表示图像保持其纵横比，并尽可能大，但完全在容器内
+            />
+          </Link>
+          <div className="text-center">{image.name}</div>
+        </div>
+      ))}
     </div>
   );
 }
