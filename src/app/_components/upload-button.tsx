@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { usePostHog } from "posthog-js/react";
 import { toast } from "sonner";
 import { useUploadThing } from "~/utils/uploadthing";
 
@@ -29,8 +30,10 @@ const useUploadThingInputProps = (...args: Input) => {
 
 export function SimpleUploadButton() {
   const router = useRouter();
+  const posthog = usePostHog();
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin: () => {
+      posthog.capture("upload_begin");
       toast("Uploading...", {
         description: "Please wait while we upload your image...",
         duration: 10000,
@@ -40,8 +43,7 @@ export function SimpleUploadButton() {
     onClientUploadComplete: () => {
       toast.dismiss("upload-toast");
       toast("Upload complete");
-      {
-      }
+      posthog.capture("upload_complete");
       router.refresh();
     },
   });
