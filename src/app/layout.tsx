@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${GeistSans.variable} font-sans`}>
+        <body className={`${GeistSans.variable} dark font-sans`}>
           <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
           <div className="grid h-screen grid-rows-[auto,1fr]">
             <TopNav />
