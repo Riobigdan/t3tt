@@ -17,7 +17,7 @@ async function Images() {
             <Image
               src={image.url}
               alt={image.name}
-              layout="fill"
+              fill
               style={{ objectFit: "contain" }} // objectFit: "contain" 是 CSS 属性，表示图像保持其纵横比，并尽可能大，但完全在容器内
             />
           </Link>

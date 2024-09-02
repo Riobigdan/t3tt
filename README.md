@@ -14,6 +14,6 @@
 - [-] Error Management (w/ Sentry) 暂时放弃 价位太高 且接入麻烦
 - [x] Routing/image page (parallel routes)
 - [x] Upadate upload button to show progress
-- [ ] Analytics (posthog)
+- [x] Analytics (posthog)
 - [ ] Delete functionality (w/ server actions)
 - [ ] Rate limiting (upstash)
