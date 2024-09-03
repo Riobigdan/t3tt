@@ -28,12 +28,13 @@ export function PostHogAuthWarpper({
   const auth = useAuth();
   const userInfo = useUser();
 
-  useEffect(() => {
+  useEffect(() => { 
     if (userInfo.user) {
       console.log("🐛 ~ file: providers.tsx:30 ~ userInfo:", userInfo);
       posthog.identify(userInfo.user.id, {
         email: userInfo.user.emailAddresses?.[0]?.emailAddress,
         name: userInfo.user.fullName,
+
       });
     } else if (!auth.isSignedIn) {
       posthog.reset();

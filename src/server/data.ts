@@ -6,7 +6,6 @@ import {
 
 export async function getUserData() {
   const user = auth();
-  // see https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#preventing-sensitive-data-from-being-exposed-to-the-client
   experimental_taintObjectReference("user", user);
   if (user.userId) {
     experimental_taintUniqueValue("userId", user, user.userId);

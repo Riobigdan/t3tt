@@ -1,7 +1,10 @@
-import { getImageById } from "~/server/queries";
+import { deleteImage, getImageById } from "~/server/queries";
 import { clerkClient } from "@clerk/nextjs/server";
+import { Button } from "@/components/ui/button";
+import { redirect } from "next/navigation";
 
 export default async function FullImagePageView(props: { id: number }) {
+  console.log("FullImagePageView props: ", props);
   const image = await getImageById(props.id);
 
   const uploadrInfo = image.userId
@@ -11,8 +14,7 @@ export default async function FullImagePageView(props: { id: number }) {
   return (
     <div className="flex h-full w-full">
       <div className="flex-grow">
-        {/* <div className="flex aspect-[16/9] items-center justify-center rounded-lg"> */}
-        <div className="flex h-full items-center justify-center rounded-lg">
+        <div className="flex h-full items-center justify-center">
           <img
             src={image.url}
             alt={image.name}
@@ -20,9 +22,8 @@ export default async function FullImagePageView(props: { id: number }) {
           />
         </div>
       </div>
-      <div className="m-4 w-72 flex-shrink-0 gap-2">
+      <div className="m-4 flex w-72 flex-shrink-0 flex-col justify-center gap-2">
         <div className="text-center text-xl font-bold">{image.name}</div>
-
         <div className="flex flex-col p-2">
           <span>Upload By: </span>
           <span>{uploadrInfo?.fullName}</span>
@@ -38,6 +39,20 @@ export default async function FullImagePageView(props: { id: number }) {
               })
               .replace(/\//g, "-")}
           </span>
+        </div>
+
+        <div className="p-2">
+          <form
+            action={async () => {
+              "use server";
+
+              await deleteImage(props.id);
+            }}
+          >
+            <Button variant="destructive" type="submit">
+              Delete
+            </Button>
+          </form>
         </div>
       </div>
     </div>
