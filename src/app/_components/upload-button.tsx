@@ -40,6 +40,14 @@ export function SimpleUploadButton() {
         id: "upload-toast",
       });
     },
+    onUploadError: (error) => {
+      posthog.capture("upload_error", { error: error.message });
+      toast.dismiss("upload-toast");
+      toast(`Error: ${error.message} Rate: 10/100s`, {
+        duration: 10000,
+        id: "upload-error",
+      });
+    },
     onClientUploadComplete: () => {
       toast.dismiss("upload-toast");
       toast("Upload complete");
