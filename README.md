@@ -16,4 +16,4 @@
 - [x] Upadate upload button to show progress
 - [x] Analytics (posthog)
 - [x] Delete functionality (w/ server actions)
-- [ ] Rate limiting (upstash)
+- [x] Rate limiting (upstash)
